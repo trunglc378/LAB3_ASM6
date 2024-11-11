@@ -15,10 +15,8 @@ import javax.servlet.http.*;
 
 //@WebServlet(name = "hello", value = "/loginMyGtel")
 public class LoginServlet extends HttpServlet {
-    private User user;
     private UserDAO userDAO;
     private HintQuestionDAO hintQuestionDAO;
-    private Connection connection;
 
     public void init() {
         String url = "jdbc:mysql://localhost:3306/schooldb";
@@ -27,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             userDAO = new UserDAO(connection);
             hintQuestionDAO = new HintQuestionDAO(connection);
         } catch (SQLException | ClassNotFoundException e) {
@@ -35,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
     }
 

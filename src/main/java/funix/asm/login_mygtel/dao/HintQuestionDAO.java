@@ -11,7 +11,7 @@ public class HintQuestionDAO {
 
 
     public HintQuestionDAO(Connection connection) {
-        this.connection = connection;
+        HintQuestionDAO.connection = connection;
     }
 
     public HintQuestionDAO() {

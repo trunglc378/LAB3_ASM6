@@ -12,7 +12,7 @@ public class UserDAO {
     private static Connection connection;
 
     public UserDAO(Connection connection) {
-        this.connection = connection;
+        UserDAO.connection = connection;
     }
 
     public UserDAO() {

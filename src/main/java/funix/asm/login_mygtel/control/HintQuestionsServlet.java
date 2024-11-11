@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,7 +65,7 @@ public class HintQuestionsServlet extends HttpServlet {
         String oldPassword = req.getParameter("oldPass");
         String newPassword = req.getParameter("newPass");
         String confirmNewPassword = req.getParameter("confirmNewPass");
-        if (session == null || session.getAttribute("userId") == null) {
+        if (session.getAttribute("userId") == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
