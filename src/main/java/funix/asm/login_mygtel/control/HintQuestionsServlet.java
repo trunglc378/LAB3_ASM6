@@ -20,13 +20,11 @@ import java.util.stream.Collectors;
 @WebServlet("/first-login")
 public class HintQuestionsServlet extends HttpServlet {
     private HintQuestionDAO hintQuestionDAO;
-    private HintQuestion hintQuestion;
     private UserDAO userDAO;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         hintQuestionDAO = new HintQuestionDAO();
-        hintQuestion = new HintQuestion();
         userDAO = new UserDAO();
     }
 
@@ -93,15 +91,6 @@ public class HintQuestionsServlet extends HttpServlet {
         }
         try {
             List<HintQuestion> hintQuestionList = hintQuestionDAO.getAllHintQuestions();
-//            int[] questionIdList = new int[hintQuestionList.size()];
-//            for (int i = 0; i < hintQuestionList.size(); i++) {
-//                questionIdList[i] = hintQuestionList.get(i).getQuestionId();
-//                if (questionIdList[i] == selectedQuestionId1 ||
-//                questionIdList[i] == selectedQuestionId2 ||
-//                questionIdList[i] == selectedQuestionId3){
-//                    hintQuestionDAO.saveSercurityAnswer(userId,questionIdList[i], answerMap.get(questionIdList[i]));
-//                }
-//            }
             List<Integer> questionIdList = hintQuestionList.stream().map(question -> question.getQuestionId()).collect(Collectors.toList());
             for (Integer id : questionIdList) {
                 if (answerMap.containsKey(id)) {

@@ -5,4 +5,4 @@ public enum LoginState {
     LOGIN_ID_RIGHT_PASS_FAIL, //Đăng nhập thất bại với ID đúng nhưng sai pass
     LOGIN_SUCCESS, // Đăng nhập thành công
     LOGIN_ID_AND_PASS_FAIL // Đăng nhập thất bại với ID và PASS đều sai
-    }
+}

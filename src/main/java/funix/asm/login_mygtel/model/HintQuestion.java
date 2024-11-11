@@ -1,15 +1,12 @@
 package funix.asm.login_mygtel.model;
 
 public class HintQuestion {
-    private int questionId;
-    private String question;
+    private final int questionId;
+    private final String question;
 
     public HintQuestion(int questionId, String question) {
         this.questionId = questionId;
         this.question = question;
-    }
-
-    public HintQuestion() {
     }
 
     public int getQuestionId() {

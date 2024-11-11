@@ -19,6 +19,7 @@ public class HintQuestionDAO {
 
     /**
      * Phương thức lấy ra toàn bộ câu hỏi gợi ý
+     *
      * @return Danh sách câu hỏi gợi ý
      * @throws SQLException Lỗi SQL
      */
@@ -27,10 +28,10 @@ public class HintQuestionDAO {
         List<HintQuestion> hintQuestionList = new ArrayList<>();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(querry);
-        while (resultSet.next()){
+        while (resultSet.next()) {
             int idQuestion = resultSet.getInt("question_id");
             String questionText = resultSet.getString("question_text");
-            HintQuestion hintQuestion = new HintQuestion(idQuestion,questionText);
+            HintQuestion hintQuestion = new HintQuestion(idQuestion, questionText);
             hintQuestionList.add(hintQuestion);
         }
         return hintQuestionList;
@@ -38,9 +39,10 @@ public class HintQuestionDAO {
 
     /**
      * Phương thức lưu câu trả lời bí mật
-     * @param userId ID truyền vào
+     *
+     * @param userId     ID truyền vào
      * @param questionId ID câu hỏi gợi ý
-     * @param answer Câu trả lời bí mật
+     * @param answer     Câu trả lời bí mật
      * @throws SQLException lỗi SQL
      */
     public void saveSercurityAnswer(String userId, int questionId, String answer) throws SQLException {

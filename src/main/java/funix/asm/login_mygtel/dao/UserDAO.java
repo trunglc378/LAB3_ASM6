@@ -47,20 +47,6 @@ public class UserDAO {
             return LoginState.LOGIN_ID_AND_PASS_FAIL;
         }
     }
-//        if (resultSet.next()) {
-//            String checkUserId = resultSet.getString("user_id");
-//            String checkPassword = resultSet.getString("password");
-//            if (checkUserId.equalsIgnoreCase(userID) && checkPassword.equalsIgnoreCase(password)) {
-//                resetFailedLoginAttemp(userID);
-//                boolean isFirstLogin = resultSet.getBoolean("is_first_login");
-//                return isFirstLogin ? LoginState.LOGIN_SUCCESS_AND_FIRST_LOGIN : LoginState.LOGIN_SUCCESS;
-//            } else if (checkUserId.equalsIgnoreCase(userID) && !checkPassword.equalsIgnoreCase(password)) {
-//                incrementFailedLoginAttemp(userID);
-//                return LoginState.LOGIN_ID_RIGHT_PASS_FAIL;
-//            }
-//        }
-//        return LoginState.LOGIN_ID_AND_PASS_FAIL;
-
 
     /**
      * Lấy ra số lần đăng nhập sai trường hợp với userID đúng.
@@ -146,7 +132,8 @@ public class UserDAO {
 
     /**
      * Kiểm tra password cũ và password trong Database có khớp với nhau không?
-     * @param userId userID truyền vào
+     *
+     * @param userId   userID truyền vào
      * @param password mật kẩu truyền vào
      * @return khớp hoặc không?
      * @throws SQLException lỗi SQL
@@ -165,14 +152,15 @@ public class UserDAO {
 
     /**
      * Cập nhật mật khẩu mới vào Cơ sở dữ liệu
-     * @param userId ID tài khoản
+     *
+     * @param userId      ID tài khoản
      * @param newPassword mật khẩu mới
      * @throws SQLException lỗi SQL
      */
-    public void  updateNewPassword(String userId, String newPassword) throws SQLException {
+    public void updateNewPassword(String userId, String newPassword) throws SQLException {
         String querrry = "UPDATE schooldb.user SET password = ?, is_first_login = 0 WHERE user_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(querrry);
-        preparedStatement.setString(1,newPassword);
+        preparedStatement.setString(1, newPassword);
         preparedStatement.setString(2, userId);
         preparedStatement.executeUpdate();
     }
