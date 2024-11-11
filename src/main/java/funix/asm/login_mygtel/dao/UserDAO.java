@@ -2,7 +2,6 @@ package funix.asm.login_mygtel.dao;
 
 import funix.asm.login_mygtel.control.AccountStatus;
 import funix.asm.login_mygtel.control.LoginState;
-import funix.asm.login_mygtel.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
