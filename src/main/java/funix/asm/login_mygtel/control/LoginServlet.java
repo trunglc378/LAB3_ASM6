@@ -3,7 +3,6 @@ package funix.asm.login_mygtel.control;
 import funix.asm.login_mygtel.dao.HintQuestionDAO;
 import funix.asm.login_mygtel.dao.UserDAO;
 import funix.asm.login_mygtel.model.HintQuestion;
-import funix.asm.login_mygtel.model.User;
 
 import java.io.*;
 import java.sql.Connection;
