@@ -91,7 +91,7 @@ public class HintQuestionsServlet extends HttpServlet {
         }
         try {
             List<HintQuestion> hintQuestionList = hintQuestionDAO.getAllHintQuestions();
-            List<Integer> questionIdList = hintQuestionList.stream().map(question -> question.getQuestionId()).collect(Collectors.toList());
+            List<Integer> questionIdList = hintQuestionList.stream().map(HintQuestion::getQuestionId).collect(Collectors.toList());
             for (Integer id : questionIdList) {
                 if (answerMap.containsKey(id)) {
                     hintQuestionDAO.saveSercurityAnswer(userId, id, answerMap.get(id));
